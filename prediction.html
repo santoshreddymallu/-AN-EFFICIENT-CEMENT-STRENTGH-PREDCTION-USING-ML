@@ -1,0 +1,110 @@
+{% extends "index.html" %}
+
+
+
+{% block content %}
+<div style="position: relative; display: flex; justify-content: center; background-size: cover; margin-top: 30px;">
+    <div style="background-color: rgba(105, 85, 85, 0.7); padding: 40px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); width: 90%;">
+        <h1 style="color: #ffffff; font-family: Arial, sans-serif;">Prediction Page</h1>
+        {% if prediction %}
+        <div style="margin-top: 20px; color: #e3d7d7; font-family: Arial, sans-serif;">
+            <h2> Prediction Cement Strength {{ prediction }}</h2>
+        </div>
+        {% endif %}
+        <form style="margin-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap;" action="{{url_for('prediction')}}" method="post">
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="days" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">Days</label>
+                <input type="number" id="days" name="days" step="any" placeholder="Enter Days value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+            
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="blaine" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">Blaine</label>
+                <input type="number" id="blaine" name="blaine" step="any" placeholder="Enter Blaine value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="residue90" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">Residue 90</label>
+                <input type="number" id="residue90" name="residue90" step="any" placeholder="Enter Residue 90 value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="residue45" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">Residue 45</label>
+                <input type="number" id="residue45" name="residue45" step="any" placeholder="Enter Residue 45 value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="nc" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">NC%</label>
+                <input type="number" id="nc" name="nc" step="any" placeholder="Enter NC% value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="loi" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">L0I%</label>
+                <input type="number" id="loi" name="loi" step="any" placeholder="Enter L0I% value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="so3" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">SO3%</label>
+                <input type="number" id="so3" name="so3" step="any" placeholder="Enter SO3% value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="c3s" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">C3S%</label>
+                <input type="number" id="c3s" name="c3s" step="any" placeholder="Enter C3S% value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="c2s" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">C2S%</label>
+                <input type="number" id="c2s" name="c2s" step="any" placeholder="Enter C2S% value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="c3a" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">C3A%</label>
+                <input type="number" id="c3a" name="c3a" step="any" placeholder="Enter C3A% value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="lsf" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">LSF%</label>
+                <input type="number" id="lsf" name="lsf" step="any" placeholder="Enter LSF% value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="moisture" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">Moisture%</label>
+                <input type="number" id="moisture" name="moisture" step="any" placeholder="Enter Moisture% value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="clinkerLiter" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">Clinker Liter</label>
+                <input type="number" id="clinkerLiter" name="clinkerLiter" step="any" placeholder="Enter Clinker Liter value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="clinkerFeedTemp" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">Clinker Feed Temp</label>
+                <input type="number" id="clinkerFeedTemp" step="any" name="clinkerFeedTemp" placeholder="Enter Clinker Feed Temp" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="water" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">Water</label>
+                <input type="number" id="water" name="water" step="any" placeholder="Enter Water value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="gadDosage" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">GADosage</label>
+                <input type="number" id="gadDosage" name="gadDosage" step="any" placeholder="Enter GADosage value" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+            <div style="margin-bottom: 15px; width: 32%;">
+                <label for="cementTemp" style="display: block; font-size: 16px; color: #ffffff; text-align: left;">Cement Temp</label>
+                <input type="number" id="cementTemp" name="cementTemp" step="any" placeholder="Enter Cement Temp" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;" required>
+            </div>
+
+    
+            <div style="width: 100%; margin-top: 20px;">
+                <button type="submit" style="width: 100%; padding: 10px; font-size: 16px; background-color: #9a4a4a; color: white; border: none; cursor: pointer; border-radius: 5px;">
+                    Predict
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
